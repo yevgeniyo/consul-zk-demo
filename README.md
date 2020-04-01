@@ -35,6 +35,8 @@ Useful commands:
 
 ![image](https://user-images.githubusercontent.com/14246521/78132098-ce7a7d00-7424-11ea-900e-52f49b8f4eec.png)
 ![image](https://user-images.githubusercontent.com/14246521/78132178-efdb6900-7424-11ea-9617-2497ac527773.png)
+![image](https://user-images.githubusercontent.com/14246521/78132398-56608700-7425-11ea-8558-6c488685fd97.png)
+![image](https://user-images.githubusercontent.com/14246521/78132439-6c6e4780-7425-11ea-9e58-d1922bd7f722.png)
 
 ## Build and run
 
