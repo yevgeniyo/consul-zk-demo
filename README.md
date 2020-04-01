@@ -1,10 +1,10 @@
 ## Purpose
 
 ```
-This repo was created for ZK Consul POC
+This repo was created for ZK + Consul POC
 Once you run this setup, you will get:
  
-- 1 consul
+- 1 Consul server
 - 4 ZK nodes (3 in cluster, 1 standalone)
 
 1. Every ZK server has own tag and can be reached by <tag>.<service-name>.service.consul
