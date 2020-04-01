@@ -18,9 +18,8 @@
                 "id": "cluster-mode-test",
                 "name": "Zk cluster mode test",
                 "args": [
-                  "/bin/sh",
-                  "-c",
-                  "echo srvr | nc localhost 2181 | grep Mode | awk '{print $2}'| awk '{ print($0); if($0 !=\"follower\" && $0 !=\"leader\") exit 2;}'"
+                  "/bin/bash",
+                  "/etc/consul.d/zk-server-mode-healthcheck.sh"
                 ],
                 "interval": "10s",
                 "timeout": "1s"
