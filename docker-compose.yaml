@@ -1,0 +1,81 @@
+version: '3'
+services:
+  consul-server-1:
+    hostname: consul-server-1
+    image: consul
+    ports:
+      - "8300:8300"
+      - "8301:8301"
+      - "8301:8301/udp"
+      - "8302:8302"
+      - "8600:8600"
+      - "8600:8600/udp"
+      - "8500:8500"
+    environment: 
+      - CONSUL_BIND_INTERFACE=eth0
+
+
+  zk1:
+    depends_on:
+      - "consul-server-1"
+    build:
+      context: zookeeper-consul
+      dockerfile: Dockerfile
+    hostname: zk1
+    image: zookeeper-consul
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    restart: always
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181
+
+  zk2:
+    depends_on:
+      - "consul-server-1"
+      - "zk1"
+    hostname: zk2
+    image: zookeeper-consul
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    restart: always
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zk1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zk3:2888:3888;2181
+
+  zk3:
+    depends_on:
+      - "consul-server-1"
+      - "zk1"
+      - "zk2"
+    hostname: zk3
+    image: zookeeper-consul
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    restart: always
+    ports:
+      - 2183:2181
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+
+  zk4:
+    depends_on:
+      - "consul-server-1"
+      - "zk1"
+      - "zk2"
+    hostname: zk4
+    image: zookeeper-consul
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    restart: always
+    ports:
+      - 2184:2181

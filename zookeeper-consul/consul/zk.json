@@ -1,0 +1,30 @@
+{
+    "service": {
+        "name": "zk",
+        "port": 2181,
+        "tags": [
+            "zk",
+            "application"
+        ],
+        "checks": [
+            {
+                "id": "port-status",
+                "name": "Web Application Status",
+                "tcp": "localhost:2181",
+                "interval": "5s",
+                "timeout": "10s"
+            },
+            {
+                "id": "cluster-mode-test",
+                "name": "Zk cluster mode test",
+                "args": [
+                  "/bin/sh",
+                  "-c",
+                  "echo srvr | nc localhost 2181 | grep Mode | awk '{print $2}'| awk '{ print($0); if($0 !=\"follower\" && $0 !=\"leader\") exit 2;}'"
+                ],
+                "interval": "10s",
+                "timeout": "1s"
+              }
+            ]
+    }
+}
