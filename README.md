@@ -24,9 +24,6 @@ Once you run this setup, you will get:
     a. port 2181 accessibility
     b. cluster mode status, if node not "follower" or "leader" - healthcheck failed
 
-![image](https://user-images.githubusercontent.com/14246521/78132098-ce7a7d00-7424-11ea-900e-52f49b8f4eec.png)
-![image](https://user-images.githubusercontent.com/14246521/78132178-efdb6900-7424-11ea-9617-2497ac527773.png)
-
 
 
 Useful commands:
@@ -35,6 +32,9 @@ Useful commands:
     - consul members
     - UI works on localhost:8600   
 ```
+
+![image](https://user-images.githubusercontent.com/14246521/78132098-ce7a7d00-7424-11ea-900e-52f49b8f4eec.png)
+![image](https://user-images.githubusercontent.com/14246521/78132178-efdb6900-7424-11ea-9617-2497ac527773.png)
 
 ## Build and run
 
