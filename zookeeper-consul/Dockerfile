@@ -17,7 +17,7 @@ ADD start.sh /root/start.sh
 
 
 # Exposing appropriate ports
-EXPOSE 80/tcp
+EXPOSE 2181/tcp
 
 
 CMD ["/bin/bash", "/root/start.sh" ]
